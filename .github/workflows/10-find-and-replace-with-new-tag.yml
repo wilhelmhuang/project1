@@ -1,0 +1,37 @@
+name: 10 find and replace with new tag
+
+on:
+  repository_dispatch:
+    types: [update_tag]
+
+jobs:
+  find-and-replace-with-new-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Find and Replace jnkSharedLibraryBranch
+        if: ${{ github.event.client_payload.repo == 'jnk__shared_library' }}
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: jnkSharedLibraryBranch\s*=\s*[/_A-Za-z\d\.'-]+
+          replace: jnkSharedLibraryBranch = '${{ github.event.client_payload.new_tag }}'
+          #          include: src/test/resources/**
+          exclude: .github/**
+      - name: Find and Replace jnkSwcIntBranch
+        if: ${{ github.event.client_payload.repo == 'jnk__swc_integration' }}
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: jnkSwcIntBranch\s*=\s*[/_A-Za-z\d\.'-]+
+          replace: jnkSwcIntBranch = '${{ github.event.client_payload.new_tag }}'
+          exclude: .github/**
+      - name: Find and Replace jnkSwcSwuPipelineBranch
+        if: ${{ github.event.client_payload.repo == 'jnk__swc_swu_pipeline' }}
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: jnkSwcSwuPipelineBranch\s*=\s*[/_A-Za-z\d\.'-]+
+          replace: jnkSwcSwuPipelineBranch = '${{ github.event.client_payload.new_tag }}'
+          exclude: .github/**
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
