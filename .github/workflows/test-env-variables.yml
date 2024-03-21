@@ -12,7 +12,7 @@ jobs:
     steps:
         - run: echo "$REPO_NAME"
         - run: echo "$GITHUB_REF"
-        - run: echo "BRANCH_NAME"
+        - run: echo "$BRANCH_NAME"
         - name: new step
           if: ${{env.REPO_NAME == 'project1'}}
           run: echo "This is project1"
