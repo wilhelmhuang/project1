@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job:
+  job1:
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       GITHUB_REF: ${{ github.ref }}
@@ -14,3 +14,12 @@ jobs:
         - name: new step
           if: ${{env.REPO_NAME == 'project1'}}
           run: echo "This is project1"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dump github context
+        run: echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
