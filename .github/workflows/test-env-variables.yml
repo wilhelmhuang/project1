@@ -7,11 +7,12 @@ jobs:
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       GITHUB_REF: ${{ github.ref }}
-      BRANCG_NAME: ${{ github.ref_name }}
+      BRANCH_NAME: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
         - run: echo "$REPO_NAME"
         - run: echo "$GITHUB_REF"
+        - run: echo "BRANCH_NAME"
         - name: new step
           if: ${{env.REPO_NAME == 'project1'}}
           run: echo "This is project1"
