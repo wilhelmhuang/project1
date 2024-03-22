@@ -14,7 +14,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: 'refs/tags/[/_A-Za-z\d\.-]+'
-          replace: 'refs/tags/world'
+          replace: 'refs/tags/xxxxxxxxxxxxxxx'
           include: src/test/resources/*
           exclude: .github/**
 
