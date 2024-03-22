@@ -1,2 +1,2 @@
-swc_swu_pipeline_branch = 'refs/tags/xxxxxxxxxxxxxxx' pipabo
-branch('refs/tags/xxxxxxxxxxxxxxx'pipabo)
+swc_swu_pipeline_branch = 'refs/tags/qq' pipabo
+branch('refs/tags/qq'pipabo)
