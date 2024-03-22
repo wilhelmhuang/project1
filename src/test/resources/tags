@@ -1,2 +1,2 @@
-swc_swu_pipeline_branch = 'refs/tags/swf2_1.0.2'
-branch('refs/tags/swf2_1.0.2')
+swc_swu_pipeline_branch = 'refs/tags/hello'
+branch('refs/tags/hello')
