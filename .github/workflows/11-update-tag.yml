@@ -1,0 +1,22 @@
+name: 10 find and replace with new tag
+
+on:
+  workflow_dispatch:
+
+jobs:
+  find-and-replace-with-new-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Find and Replace srep1
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: 'refs/tags/[/_A-Za-z\d\.-]+'
+          replace: 'refs/tags/hello'
+          include: src/test/resources/*
+          exclude: .github/**
+
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
