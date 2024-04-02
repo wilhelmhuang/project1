@@ -1,0 +1,16 @@
+name: pipeline for updating tag
+
+on:
+  workflow_dispatch:
+
+jobs:
+  find-and-replace-with-new-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update Tag
+        uses: wilhelmhuang/project1/.github/workflows/11-update-tag@main
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
