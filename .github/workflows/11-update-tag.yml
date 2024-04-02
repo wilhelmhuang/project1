@@ -1,7 +1,7 @@
-name: 10 find and replace with new tag
+name: update tag job
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   find-and-replace-with-new-tag:
@@ -9,14 +9,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
       - name: Find and Replace srep1
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: refs/tags/[/_A-Za-z\d\.-]+
-          replace: refs/tags/qq
+          replace: refs/tags/newTag
           include: src/test/resources/*
           exclude: .github/**
-
-      - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
