@@ -1,0 +1,1 @@
+jnkSharedLibraryBranch = 'refs/tags/qq'
