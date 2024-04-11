@@ -18,10 +18,6 @@ on:
         required: false
         default: master
         description: 'Branch from which the changelog file will be read'
-    outputs:
-      latest_tag:
-        description: "Latest tag from changelog"
-        value: ${{ jobs.read-latest-tag-job.outputs.latest_tag }}
 
 jobs:
   read-latest-tag-job:
