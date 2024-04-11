@@ -32,7 +32,6 @@ jobs:
         with:
           repository: ${{ inputs.repo }}
           ref: ${{ inputs.branch }}
-          path: CHANGELOG.md
 
       # read changelog file
       - name: Read file contents
