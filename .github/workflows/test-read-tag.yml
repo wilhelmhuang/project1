@@ -4,7 +4,7 @@ on:
 
 jobs:
   job1:
-    uses: ./.github/workflows/read-latest-tag-from-changelog.yml@master
+    uses: ./.github/workflows/read-latest-tag-from-changelog.yml
     with:
       runner: ubuntu-latest
       repo: wilhelmhuang/project1
