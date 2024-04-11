@@ -1,0 +1,50 @@
+name: Read latest tag from CHANGELOG
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        required: true
+        type: string
+        description: 'Runner for the workflow'
+      repo:
+        type: string
+        required: true
+        description: 'Repository from which the changelog file will be read'
+      branch:
+        type: string
+        required: false
+        default: master
+        description: 'Branch from which the changelog file will be read'
+    outputs:
+      latest_tag:
+        description: "Latest tag from changelog"
+        value: ${{ jobs.read-latest-tag-job.outputs.latest_tag }}
+
+jobs:
+  read-latest-tag-job:
+    runs-on: ${{ inputs.runner }}
+    outputs:
+      latest_tag: ${{ steps.regex_match.outputs.group1 }}
+    steps:
+      # check out repository
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.branch }}
+          path: CHANGELOG.md
+
+      # read changelog file
+      - name: Read file contents
+        id: read_changelog
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "CHANGELOG.md"
+
+      # find latest tag in changelog file
+      - name: Find latest tag in CHANGELOG
+        id: regex_match
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ steps.read_changelog.outputs.contents }}
+          regex: '##\s*latest:\s*([\.0-9]+)'
