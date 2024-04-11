@@ -1,7 +1,7 @@
 name: Read latest tag from CHANGELOG
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       runner:
         required: true

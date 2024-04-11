@@ -1,6 +1,6 @@
 name: Test read tag from CHANGELOG
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
   job1:
