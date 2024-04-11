@@ -49,4 +49,7 @@ jobs:
           regex: '30.08.2023'
 
       - name: print out tag
-        run: echo ${{ steps.regex_match.outputs.group1 }}
+        run: |
+          echo "hello world!"
+          echo ${{ steps.regex_match.outputs.group1 }}
+          echo "bye bye!"
