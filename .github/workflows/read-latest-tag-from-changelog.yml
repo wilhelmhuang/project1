@@ -24,6 +24,8 @@ on:
 jobs:
   read-latest-tag-job:
     runs-on: ${{ inputs.runner }}
+    permissions:
+      contents: read
     outputs:
       latest_tag: ${{ steps.regex_match.outputs.group1 }}
     steps:
