@@ -43,7 +43,7 @@ jobs:
       # find latest tag in changelog file
       - name: Find latest tag in CHANGELOG
         id: regex_match
-        uses: actions-ecosystem/action-regex-match@v2
+        uses: actions-ecosystem/action-regex-match@v2.0.2
         with:
           text: ${{ steps.read_changelog.outputs.contents }}
           regex: '30.08.2023'
