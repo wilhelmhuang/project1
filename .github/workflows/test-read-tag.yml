@@ -1,0 +1,15 @@
+name: Test read tag from CHANGELOG
+on:
+  workflow_call:
+
+jobs:
+  job1:
+    uses: ./read-latest-tag-from-changelog.yml@master
+    with:
+      runner: ubuntu-latest
+      repo: wilhelmhuang/project1
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo ${{ needs.job1.outputs.content }}
