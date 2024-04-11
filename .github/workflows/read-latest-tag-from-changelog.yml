@@ -1,15 +1,17 @@
 name: Read latest tag from CHANGELOG
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       runner:
-        required: true
+        required: false
+        default: ubuntu-latest
         type: string
         description: 'Runner for the workflow'
       repo:
         type: string
-        required: true
+        required: false
+        default: wilhelmhuang/project1
         description: 'Repository from which the changelog file will be read'
       branch:
         type: string
@@ -49,3 +51,6 @@ jobs:
         with:
           text: ${{ steps.read_changelog.outputs.contents }}
           regex: '30.08.2023'
+
+      - name: print out tag
+        run: echo ${{ steps.regex_match.outputs.group1 }}
