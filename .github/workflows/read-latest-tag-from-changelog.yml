@@ -41,12 +41,20 @@ jobs:
           path: "CHANGELOG.md"
 
       # find latest tag in changelog file
+#      - name: Find latest tag in CHANGELOG
+#        id: regex_match
+#        uses: actions-ecosystem/action-regex-match@v2
+#        with:
+#          text: ${{ steps.read_changelog.outputs.contents }}
+#          regex: '30.08.2023'
+
       - name: Find latest tag in CHANGELOG
         id: regex_match
-        uses: actions-ecosystem/action-regex-match@v2.0.2
+        uses: AsasInnab/regex-action@v1
         with:
-          text: ${{ steps.read_changelog.outputs.contents }}
-          regex: '30.08.2023'
+          regex_pattern: '30.08.2023'
+          regex_flags: 'gim'
+          search_string: ${{ steps.read_changelog.outputs.contents }}
 
       - name: print out tag
         run: |
