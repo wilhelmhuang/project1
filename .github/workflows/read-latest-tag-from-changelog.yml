@@ -60,7 +60,7 @@ jobs:
         id: regex_match
         uses: actions-ecosystem/action-regex-match@v2
         with:
-          text: ${{ github.event.comment.body }}
+          text: ${{ steps.read_changelog.outputs.contents }}
           regex: '##\s*latest:\s*([_\.\w]+)'
 
       - name: print out tag
