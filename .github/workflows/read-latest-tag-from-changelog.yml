@@ -48,16 +48,23 @@ jobs:
 #          text: ${{ steps.read_changelog.outputs.contents }}
 #          regex: '30.08.2023'
 
+#      - name: Find latest tag in CHANGELOG
+#        id: regex_match
+#        uses: AsasInnab/regex-action@v1
+#        with:
+#          regex_pattern: '30.08.2023'
+#          regex_flags: 'gim'
+#          search_string: ${{ steps.read_changelog.outputs.contents }}
+
       - name: Find latest tag in CHANGELOG
         id: regex_match
-        uses: AsasInnab/regex-action@v1
+        uses: actions-ecosystem/action-regex-match@v2
         with:
-          regex_pattern: '30.08.2023'
-          regex_flags: 'gim'
-          search_string: ${{ steps.read_changelog.outputs.contents }}
+          text: ${{ github.event.comment.body }}
+          regex: '##\s*latest:\s*([\.\w])'
 
       - name: print out tag
         run: |
           echo "hello world!"
-          echo ${{ steps.regex_match.outputs.first_match }}
+          echo ${{ steps.regex_match.outputs.group1 }}
           echo "bye bye!"
