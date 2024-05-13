@@ -1,11 +1,16 @@
 name: Test env variables
 on:
   workflow_dispatch:
+    inputs:
+      repo:
+        required: true
+        type: string
+        description: 'Runner for the workflow'
 
 jobs:
   job1:
     env:
-      REPO_NAME: ${{ github.event.repository.name }}
+      REPO_NAME: ${{ contains(inputs.repo, 'a') && 'a is passed' || 'a is not passed' }}
       GITHUB_REF: ${{ github.ref }}
       BRANCH_NAME: ${{ github.ref_name }}
     runs-on: ubuntu-latest
