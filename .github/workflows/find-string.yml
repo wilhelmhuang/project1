@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: the-coding-turtle/ga-file-list@v0.2
         id: ga
+        with:
+          directory: "scripts"
+          file_extension: "py"
       - name: print current dir
         run: |
           echo ${{ steps.ga.outputs.file_names }}
