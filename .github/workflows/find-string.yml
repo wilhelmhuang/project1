@@ -7,16 +7,11 @@ jobs:
   find-string-in-file:
     runs-on: ubuntu-latest
     steps:
-      - name: print current dir
-        shell: cmd
-        run: |
-          echo pwd
-          pwd
-          echo ls
-          ls
       - name: Find string
         run: |
           python --version
+          echo pwd
+          pwd
           python scripts/searchLatestTagInChangelog.py CHANGELOG.md
           
   
