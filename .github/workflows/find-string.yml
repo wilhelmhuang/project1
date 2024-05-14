@@ -9,5 +9,6 @@ jobs:
     steps:
       - name: Find string
         run: |
-          echo "pyhton -version"
+          python -version
+          
   
