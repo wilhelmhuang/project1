@@ -11,10 +11,8 @@ jobs:
       - name: Find string
         run: |
           python --version
-          echo pwd
-          pwd
-          ls
-          echo ls
           python scripts/searchLatestTagInChangelog.py CHANGELOG.md
+          $tag = python scripts/searchLatestTagInChangelog.py CHANGELOG.md
+          echo $tag
           
   
