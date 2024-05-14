@@ -15,7 +15,7 @@ def executeSearching(filePath):
     return searchResults.group(1)
 
 def main():
-    parser = argparse.AugumentParser(description='search latest tag from CHANGELOG.md')
+    parser = argparse.ArgumentParser(description='search latest tag from CHANGELOG.md')
     parser.add_argument("filePath", type=str, help='path to the CHANGELOG.md')
     args = parser.parse_args()
 
