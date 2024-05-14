@@ -12,7 +12,8 @@ jobs:
           python --version
           echo pwd
           pwd
-          ls 
+          ls
+          echo ls
           python scripts/searchLatestTagInChangelog.py CHANGELOG.md
           
   
