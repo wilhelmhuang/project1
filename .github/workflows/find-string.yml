@@ -7,14 +7,13 @@ jobs:
   find-string-in-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: the-coding-turtle/ga-file-list@v0.2
-        id: ga
-        with:
-          directory: "scripts"
-          file_extension: "py"
       - name: print current dir
+        shell: cmd
         run: |
-          echo ${{ steps.ga.outputs.file_names }}
+          echo pwd
+          pwd
+          echo ls
+          ls
       - name: Find string
         run: |
           python --version
