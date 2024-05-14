@@ -10,7 +10,7 @@ jobs:
       - name: Find string
         run: |
           python --version
-          ls
+          echo "ls"
           python scripts/searchLatestTagInChangelog.py CHANGELOG.md
           
   
