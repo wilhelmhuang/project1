@@ -12,7 +12,5 @@ jobs:
         run: |
           python --version
           python scripts/searchLatestTagInChangelog.py CHANGELOG.md
-          $tag = python scripts/searchLatestTagInChangelog.py CHANGELOG.md
-          echo $tag
           
   
