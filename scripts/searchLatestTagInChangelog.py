@@ -10,7 +10,7 @@ def executeSearching(filePath):
     with open(filePath, "r", encoding="utf-8") as changelog:
         changelogStr = "".join(line.strip() for line in changelog)
 
-    tagPattern = re.compile(r'##\s*latest\s*([_\.\w]+)')
+    tagPattern = re.compile(r'##\s*latest:\s*([_\.\w]+)')
     searchResults = tagPattern.search(changelogStr)
     return searchResults.group(1)
 
