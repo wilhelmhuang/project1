@@ -1,0 +1,13 @@
+name: Find string in a file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  find-string-in-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find string
+        run: |
+          echo "pyhton -version"
+  
