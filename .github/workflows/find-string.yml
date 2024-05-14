@@ -7,9 +7,7 @@ jobs:
   find-string-in-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@v1.0.1
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: the-coding-turtle/ga-file-list@v0.2
       - name: Find string
         run: |
           python --version
