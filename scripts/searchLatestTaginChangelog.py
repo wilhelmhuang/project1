@@ -6,7 +6,7 @@ import re
 def executeSearching(filePath):
     # if not os.path.isfile(filePath):
     #     raise OSError("Can not find given file '{}'".format(filePath))
-
+    print (os.getcwd())
     with open(filePath, "r", encoding="utf-8") as changelog:
         changelogStr = "".join(line.strip() for line in changelog)
 
