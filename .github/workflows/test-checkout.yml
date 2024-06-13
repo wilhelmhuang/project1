@@ -1,0 +1,19 @@
+on:
+  push:
+    paths:
+      - CHANGELOG.md
+
+
+name: test checkout
+
+jobs:
+  checkout-and-print-current-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@main
+      - name: print out current branch
+        run: | 
+          echo ${{ github.ref }}
+
+
