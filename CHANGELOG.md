@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## latest: swf2_1.0.2
 
+
 # [1.8.3] - 30.08.2023
 ## changed
 -changed batch scripts to execute SWC build
