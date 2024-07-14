@@ -19,6 +19,9 @@ public class FileProcessing {
         this.collection = new ArrayList<>();
     }
 
+
+
+
     public void act(){
         reader.readFile(url, collection);
         strategy.inspect(collection);
