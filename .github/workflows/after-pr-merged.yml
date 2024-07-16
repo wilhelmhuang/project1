@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
       - name: print some variables
         run: |
           echo The PR was merged
