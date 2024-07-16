@@ -11,22 +11,14 @@ on:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: check out repo
-        uses: actions/checkout@main
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: read commits
-        shell: bash
         run: |
-          echo 'COMMITS<<EOF' >> $env:GITHUB_ENV
-          #          git log "v0.0.1..HEAD" --oneline >> $env:GITHUB_ENV
-          echo 'hehe' >> $env:GITHUB_ENV
-          echo 'EOF' >> $env:GITHUB_ENV
+          echo 'COMMITS<<EOF' >> $GITHUB_ENV
+          git log --oneline >> $GITHUB_ENV
+          echo 'hehe' >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: print env var
-        shell: bash
         run: |
           echo "${{ env.COMMITS }}"
