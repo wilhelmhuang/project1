@@ -15,10 +15,12 @@ jobs:
     steps:
       - name: check out repo
         uses: actions/checkout@main
+        with:
+          ref: special-branch
       - name: read commits
         run: |
           echo 'COMMITS<<EOF' >> $GITHUB_ENV
-          git log 22801b4..HEAD --oneline >> $GITHUB_ENV
+          git log v0.0.1..HEAD --oneline >> $GITHUB_ENV
           echo 'hehe' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: print env var
