@@ -20,7 +20,7 @@ jobs:
       - name: read commits
         run: |
           echo 'COMMITS<<EOF' >> $GITHUB_ENV
-          git log v0.0.1..HEAD --oneline >> $GITHUB_ENV
+          git log a32aebc..HEAD --oneline >> $GITHUB_ENV
           echo 'hehe' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: print env var
