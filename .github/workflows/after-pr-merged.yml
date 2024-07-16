@@ -7,6 +7,7 @@ on:
     types:
       - closed
 
+
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
@@ -18,3 +19,14 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: read commits
+        shell: bash
+        run: |
+          echo 'COMMITS<<EOF' >> $env:GITHUB_ENV
+          #          git log "v0.0.1..HEAD" --oneline >> $env:GITHUB_ENV
+          echo 'hehe' >> $env:GITHUB_ENV
+          echo 'EOF' >> $env:GITHUB_ENV
+      - name: print env var
+        shell: bash
+        run: |
+          echo "${{ env.COMMITS }}"
