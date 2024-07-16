@@ -30,7 +30,7 @@ jobs:
       - name: get latest tag
         run: |
           echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $env:GITHUB_ENV
-          echo "second_latest_tag=$(git tag | sort --version-sort | tail -n2 | | head -1)" >> $env:GITHUB_ENV
+          echo "second_latest_tag=$(git tag | sort --version-sort | tail -n2 | head -1)" >> $env:GITHUB_ENV
       - name: print latest tag
         run: |
           echo ${{ env.latest_tag}}
