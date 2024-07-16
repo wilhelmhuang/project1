@@ -17,6 +17,8 @@ jobs:
         uses: actions/checkout@main
         with:
           ref: special-branch
+      - name: execute git pull
+        run: git pull
       - name: read commits
         run: |
           echo 'COMMITS<<EOF' >> $GITHUB_ENV
