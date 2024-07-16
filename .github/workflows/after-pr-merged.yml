@@ -24,7 +24,8 @@ jobs:
         shell: bash
         run: |
           echo 'COMMITS<<EOF' >> $env:GITHUB_ENV
-          git log "v0.0.1..HEAD" --oneline >> $env:GITHUB_ENV
+#          git log "v0.0.1..HEAD" --oneline >> $env:GITHUB_ENV
+          echo 'hehe' >> $env:GITHUB_ENV
           echo 'EOF' >> $env:GITHUB_ENV
       - name: print env var
         shell: bash
