@@ -10,25 +10,11 @@ on:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: check out repo
         uses: actions/checkout@main
-      - name: print some variables
-        run: |
-          echo The PR was merged
-          echo ${{ github.head_ref }}
-          echo ${{ github.ref_name }}
-#          echo ${{GITHUB_REF#refs/*/}}
-          echo $(git tag --oneline)
-      - name: read commits
-        shell: bash
-        run: |
-               echo 'COMMITS<<EOF' >> $GITHUB_ENV
-          #          git log "v0.0.1..HEAD" --oneline >> $GITHUB_ENV
-               echo 'hehe' >> $GITHUB_ENV
-               echo 'EOF' >> $GITHUB_ENV
-      - name: print env var
-        shell: bash
-        run: |
-          echo "${{ env.COMMITS }}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
