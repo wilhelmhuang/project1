@@ -18,8 +18,6 @@ jobs:
         with:
           ref: special-branch
           fetch-depth: 0
-#      - name: execute git pull
-#        run: git pull
       - name: read commits
         run: |
           echo 'COMMITS<<EOF' >> $env:GITHUB_ENV
@@ -29,3 +27,8 @@ jobs:
       - name: print env var
         run: |
           echo "${{ env.COMMITS }}"
+      - name: get latest tag
+        run: echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $env:GITHUB_ENV
+      - name: print latest tag
+        run: |
+          echo ${{ env.latest_tag}}
