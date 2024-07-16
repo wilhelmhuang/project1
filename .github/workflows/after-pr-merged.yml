@@ -39,5 +39,7 @@ jobs:
         id: changelog_diff
         run: |
           sed -n "/^## \[v0.0.1\]/,/^## \[$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))\]/{/^## \[$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))\]/!p;}" CHANGELOG.md > release_notes.md
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git commit -am "release notes"
           git push
