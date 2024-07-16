@@ -14,11 +14,11 @@ jobs:
     steps:
       - name: check out repo
         uses: actions/checkout@v4
-      - run: |
-          echo The PR was merged
-          echo ${{ github.head_ref }}
-          echo ${{ github.ref_name }}
-          echo ${{GITHUB_REF#refs/*/}}
+#      - run: |
+#          echo The PR was merged
+#          echo ${{ github.head_ref }}
+#          echo ${{ github.ref_name }}
+#          echo ${{GITHUB_REF#refs/*/}}
 
       - name: read commits
         shell: bash
