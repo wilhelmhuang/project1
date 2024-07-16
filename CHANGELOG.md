@@ -7,14 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## latest: swf2_1.0.2
 
 
-# [1.8.3] - 30.08.2023
+# [v0.0.2] - 30.08.2023
 ## changed
 -changed batch scripts to execute SWC build
 ## removed
 - removed deploying MKS_Persistent Artifacts to Integrity
 - removed Filters from SWC choice
 
-# [1.8.2] - 19.07.2023
+# [v0.0.1] - 19.07.2023
 ## changed
 -Fixed Veos Library generation bug
 
