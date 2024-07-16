@@ -38,8 +38,17 @@ jobs:
       - name: Create changelog diff
         id: changelog_diff
         run: |
-          sed -n "/^## \[v0.0.1\]/,/^## \[$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))\]/{/^## \[$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))\]/!p;}" CHANGELOG.md > release_notes.md
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git commit -am "release notes"
-          git push
+          sed -n '/${{ env.latest_tag }}/,/${{ env.second_latest_tag }}/p' CHANGELOG.md | head -n -1 > release_notes.md
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.latest_tag }}
+          release_name: Release ${{ env.latest_tag }}
+          body_path: ./release_notes.md
+          draft: false
+          prerelease: false
+      - name: Delete release_notes file
+        run: rm release_notes.md
