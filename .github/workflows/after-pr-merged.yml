@@ -19,6 +19,8 @@ jobs:
           echo ${{ github.head_ref }}
           echo ${{ github.ref_name }}
           echo ${GITHUB_REF#refs/*/}
-          echo "TAG_NAME=$(git tag)" >> $GITHUB_ENV
-          echo $TAG_NAME
+          echo ${{ git tag }}
+          echo $(git tag)
+#          echo "TAG_NAME=$(git tag)" >> $GITHUB_ENV
+#          echo $TAG_NAME
 #          git describe --tags --abbrev=0
