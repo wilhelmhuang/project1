@@ -13,6 +13,8 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - name: check out repo
+        uses: actions/checkout@main
       - name: read commits
         run: |
           echo 'COMMITS<<EOF' >> $GITHUB_ENV
