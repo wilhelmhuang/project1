@@ -1,14 +1,12 @@
 name: After PR is merged
 
 on:
-#  pull_request:
-#    branches:
-#      - master
-#    types:
-#      - closed
-  push:
+  pull_request:
     branches:
-      - special-branch
+      - master
+    types:
+      - closed
+
 
 jobs:
   if_merged:
