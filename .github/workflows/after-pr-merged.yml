@@ -19,5 +19,5 @@ jobs:
           echo ${{ github.head_ref }}
           echo ${{ github.ref_name }}
           echo ${GITHUB_REF#refs/*/}
-          git tag
+          echo git tag
 #          git describe --tags --abbrev=0
