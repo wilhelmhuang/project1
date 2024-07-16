@@ -17,3 +17,4 @@ jobs:
           echo ${{ github.head_ref }}
           echo ${{ github.ref_name }}
           echo ${GITHUB_REF#refs/*/}
+          git describe --tags --abbrev=0
