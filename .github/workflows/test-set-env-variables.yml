@@ -21,14 +21,8 @@ jobs:
       - name: Set the value on windows
         id: step_one
         run: |
-          echo "action_state_1=one" >> "GITHUB_ENV"
-          echo "action_state_2=two" >> "GITHUB_ENV"
-          echo "action_state_3=three" >> "$env:GITHUB_ENV"
-          echo "action_state_4=four" >> "$env:GITHUB_ENV"
+          echo "action_state=red" >> "$env:GITHUB_ENV"
       - name: Use the value on windows
         id: step_two
         run: |
-          printf '%s\n' "$action_state_1" 
-          printf '%s\n' "$env:action_state_2" 
-          printf '%s\n' "$action_state_3" 
-          printf '%s\n' "$env:action_state_4" 
+          printf '%s\n' "$env:action_state" 
