@@ -25,4 +25,4 @@ jobs:
       - name: Use the value on windows
         id: step_two
         run: |
-          printf '%s\n' "$env:action_state" 
+          printf '%s\n' "$env.action_state" 
