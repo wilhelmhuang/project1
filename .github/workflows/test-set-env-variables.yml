@@ -21,8 +21,8 @@ jobs:
       - name: Set the value on windows
         id: step_one
         run: |
-          echo "color_1=yellow" >> "$env:GITHUB_OUTPUT"
-          echo "color_2=red" >> "$env:GITHUB_OUTPUT"
+          echo "color_1=yellow" >> "$GITHUB_OUTPUT"
+          echo "color_2=red" >> "$GITHUB_OUTPUT"
       - name: Use the value on windows
         id: step_two
         run: |
