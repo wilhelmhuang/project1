@@ -22,6 +22,7 @@ jobs:
         id: step_one
         run: |
           echo "action_state=red" >> "$env:GITHUB_ENV"
+          printf '%s\n' "$env.action_state"
       - name: Use the value on windows
         id: step_two
         run: |
