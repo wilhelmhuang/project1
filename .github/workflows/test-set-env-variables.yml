@@ -1,0 +1,28 @@
+name: Test set env variables
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set the value on ubuntu
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> "$GITHUB_ENV"
+      - name: Use the value on ubuntu
+        id: step_two
+        run: |
+          printf '%s\n' "$action_state" # This will output 'yellow'
+
+  job2:
+    runs-on: windows-latest
+    steps:
+      - name: Set the value on windows
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> "$env:GITHUB_ENV"
+      - name: Use the value on windows
+        id: step_two
+        run: |
+          printf '%s\n' ${{env:action_state}} # This will output 'yellow'
