@@ -25,4 +25,4 @@ jobs:
       - name: Use the value on windows
         id: step_two
         run: |
-          printf '%s\n' "$action_state" # This will output 'yellow'
+          printf '%s\n' ${{action_state}} # This will output 'yellow'
